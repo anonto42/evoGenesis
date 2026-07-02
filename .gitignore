@@ -1,0 +1,87 @@
+# =============================================================================
+# EvolGenesis — .gitignore
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Rust / Cargo
+# -----------------------------------------------------------------------------
+# Compiled output — can be 1-5GB for ESP32 builds. Never commit.
+target/
+firmware/target/
+
+# Cargo lock is committed for binary crates (firmware) but excluded for libs.
+# We keep Cargo.lock for firmware (it IS a binary crate), so do NOT add it here.
+
+# -----------------------------------------------------------------------------
+# ESP-IDF / embuild cache
+# -----------------------------------------------------------------------------
+# ESP-IDF framework downloaded and compiled by embuild (can be 1-3GB)
+.embuild/
+firmware/.embuild/
+
+# Generated ESP-IDF sdkconfig (auto-generated from sdkconfig.defaults)
+# sdkconfig.defaults IS committed; sdkconfig itself is auto-generated.
+sdkconfig
+firmware/sdkconfig
+sdkconfig.old
+firmware/sdkconfig.old
+
+# ESP-IDF cmake build artifacts
+build/
+firmware/build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+
+# -----------------------------------------------------------------------------
+# Compiled firmware artifacts
+# -----------------------------------------------------------------------------
+*.bin
+*.elf
+*.map
+*.hex
+*.srec
+
+# -----------------------------------------------------------------------------
+# Hardware / KiCad / EDA tools (for hardware/ directory in future)
+# -----------------------------------------------------------------------------
+*.bak
+*-backups/
+*_autosave-*
+fp-info-cache
+*.dsn
+*.ses
+
+# -----------------------------------------------------------------------------
+# Simulation artifacts (for simulations/ directory in future)
+# -----------------------------------------------------------------------------
+*.pyc
+__pycache__/
+
+# -----------------------------------------------------------------------------
+# OS junk
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V8
+.Trashes
+Thumbs.db
+desktop.ini
+
+# -----------------------------------------------------------------------------
+# IDE & Editor
+# -----------------------------------------------------------------------------
+.idea/
+.vscode/settings.json
+*.swp
+*.swo
+*~
+.direnv/
+.envrc
+
+# -----------------------------------------------------------------------------
+# Logs & temp files
+# -----------------------------------------------------------------------------
+*.log
+*.tmp

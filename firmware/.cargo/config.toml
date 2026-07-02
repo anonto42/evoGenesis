@@ -1,0 +1,15 @@
+[target.xtensa-esp32-espidf]
+linker = "ldproxy"
+# Remote build server. Requires the linker and target installed on the server.
+# runner = "espflash flash --monitor"
+rustflags = [
+  # Extending time_t to 64 bits is important for avoiding the year-2038 problem.
+  # See: https://github.com/esp-rs/rust/issues/241
+  "--cfg",  "espidf_time64",
+]
+
+[build]
+target = "xtensa-esp32-espidf"
+
+[unstable]
+build-std = ["std", "panic_abort"]
