@@ -13,3 +13,9 @@ target = "xtensa-esp32-espidf"
 
 [unstable]
 build-std = ["std", "panic_abort"]
+
+# Tell embuild to install ESP-IDF tools into the standard global path (~/.espressif)
+# instead of a local .embuild dir. This avoids Python venv path mismatches.
+[env]
+ESP_IDF_TOOLS_INSTALL_DIR = "global"
+
